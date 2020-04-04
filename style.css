@@ -1,0 +1,176 @@
+.container {
+  width: 80%;
+  height: 100vh;
+  margin: 20px auto 100px;
+  text-align: center;
+  position: relative;
+}
+img {
+  height: 120px;
+}
+
+/*Fade Out Effect*/
+.fade-out img {
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+.fade-out img:hover {
+  opacity: 0;
+}
+
+/*Rotaion & Zoom In Effect*/
+.rotation {
+  margin: 30px 0;
+  position: relative;
+  z-index: 2;
+}
+.rotation img {
+  position: relative;
+  z-index: 2;
+}
+.rotation img:hover {
+  box-shadow: 2px 2px 10px #ddd;
+  transform: scale(4, 3) rotate(1080deg);
+  transition: 1s ease-in-out;
+}
+
+/*Moving Effect*/
+.move {
+  position: relative;
+  width: 350px;
+  height: 300px;
+  margin: 0 auto;
+  border: 2px solid blue;
+}
+.move .circle {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  border: 2px solid rgb(110, 110, 110);
+  border-radius: 50%;
+  display: none;
+  transition: 0.45s ease-in-out;
+}
+.move-btn {
+  position: absolute;
+  bottom: -34px;
+  transform: translate(-50%, -50%);
+}
+
+.move-btn:hover + div.circle {
+  display: block;
+  animation: moving 2s linear;
+  animation-delay: -0.5s;
+  top: initial;
+  bottom: 0;
+}
+
+/*Task Two*/
+
+.ices {
+  position: relative;
+  width: 60%;
+  margin: 50px auto;
+  border: 1px solid #ddd;
+  height: 300px;
+}
+.ices .play,
+.ices .pause {
+  float: left;
+}
+.ice-top,
+.ice-left,
+.ice-right {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+.ices .ice-top {
+  background: lightseagreen;
+  left: 50%;
+  top: 0%;
+}
+.play:hover ~ div.ice-top {
+  animation: moving 1s infinite;
+}
+.ices .ice-left {
+  background-color: magenta;
+  top: 50%;
+  left: 0;
+}
+.play:hover ~ div.ice-left {
+  animation: movingToRight 1s infinite;
+}
+.ices .ice-right {
+  background-color: lightgreen;
+  top: 50%;
+  right: 0;
+}
+.play:hover ~ div.ice-right {
+  animation: movingToLeft 1s infinite;
+}
+
+/*animations*/
+
+/*Moving Y*/
+@keyframes moving {
+  0% {
+    display: block;
+    top: 0%;
+  }
+  25% {
+    top: 25%;
+  }
+  50% {
+    top: 50%;
+  }
+  75% {
+    top: 75%;
+  }
+  100% {
+    top: initial;
+  }
+}
+
+/*Moving To Right*/
+@keyframes movingToRight {
+  0% {
+    left: 0%;
+  }
+  25% {
+    left: 25%;
+  }
+  50% {
+    left: 50%;
+  }
+  75% {
+    left: 75%;
+  }
+  100% {
+    left: initial;
+    right: 0;
+  }
+}
+
+/*Moving To Left*/
+@keyframes movingToLeft {
+  0% {
+    display: block;
+    right: 0%;
+  }
+  25% {
+    right: 25%;
+  }
+  50% {
+    right: 50%;
+  }
+  75% {
+    right: 75%;
+  }
+  100% {
+    right: initial;
+    left: 0;
+  }
+}
